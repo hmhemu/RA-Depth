@@ -14,3 +14,37 @@ If you think it is a useful work, please consider citing it.
 
 ```
 
+## Overview of RA-Depth
+![](assets/pipeline.png)
+
+
+## Basic results on KITTI dataset
+![](assets/results1.png)
+
+
+## Resolution Adaptation Results
+![](assets/results2.png)
+
+
+##  Ablation Study
+![](assets/results3.png)
+
+
+## Visualization Results of Resolution Adaptation
+![](assets/visuals.png)
+
+
+## Training:
+
+```
+CUDA_VISIBLE_DEVICES=0 python train.py --model_name RA-Depth --scales 0 --png --log_dir models --data_path /datasets/Kitti/Kitti_raw_data
+```
+
+
+## Testing:
+
+```
+CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /models/RA-Depth/ --eval_mono --height 192 --width 640 --scales 0 --data_path /datasets/Kitti/Kitti_raw_data --png
+```
+
+
