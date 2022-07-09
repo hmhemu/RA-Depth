@@ -25,21 +25,7 @@ splits_dir = os.path.join(os.path.dirname(__file__), "splits")
 # to convert our stereo predictions to real-world scale we multiply our depths by 5.4.
 STEREO_SCALE_FACTOR = 5.4
 
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/EMDepth00_abs1_1_1024/models/weights_19/ --eval_mono --height 320 --width 1024 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MRDepth00/models/weights_0/ --eval_mono --height 192 --width 640 --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth/models/weights_19/ --eval_mono --height 192 --width 640 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/models/mono_640x192/ --height 128 --width 416 --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_416x128/models/weights_19/ --height 128 --width 416 --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_hrdepth_416x128/models/weights_19/ --height 128 --width 416 --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth_baseline_nopt/models/weights_19/ --eval_mono --height 192 --width 640 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth_abs02/models/weights_19/ --eval_mono --height 192 --width 640 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth_bian/models/weights_19/ --eval_mono --height 192 --width 640 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth_baseline_nopt/models/weights_19/ --eval_mono --height 128 --width 416 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth_nopt/models/weights_19/ --eval_mono --height 128 --width 416 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/RA-Depth_sf1/models/weights_19/ --eval_mono --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/models/mono_640x192/ --eval_split improved_eigen --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MRDepth10/models/weights_19/ --eval_split improved_eigen --eval_mono --height 192 --width 640 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-
+#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /models/RA-Depth/ --eval_mono --height 192 --width 640 --scales 0 --data_path /datasets/Kitti/Kitti_raw_data --png
 
 def compute_errors(gt, pred):
     """Computation of error metrics between predicted and ground truth depths
@@ -268,73 +254,3 @@ if __name__ == "__main__":
     options = MonodepthOptions()
     evaluate(options.parse())
 
-
-
-#0511
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet07/models/weights_19/ --eval_mono --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_resnet50/models/weights_17/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png --num_layers 50
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MS21_freezepose44_1/models/weights_19/ --scales 0 --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png --num_layers 50
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_depth50_pose18/models/weights_17/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png --num_layers 50
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet10/models/weights_19/ --scales 0 --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png --num_layers 50
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_depth50_pose50/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png --num_layers 50
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet13/models/weights_2/ --scales 0 1 2 3 4 --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/models/mono+stereo_1024x320/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png --width 1024  --height 320
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_densefusion/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-
-
-
-#python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_640x192/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_stereo_640x192_1/models/weights_8/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_stereo_1024x320/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_stereo_disp/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_640x192/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/models/stereo_640x192/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MS_lr04/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-
-#0912
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_06/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_09/models/weights_16/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono_00/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=3 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_640x192/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-
-#0928
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono01/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono_convex01/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono_convex00_1/models/weights_9/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono_convex03/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_1024x320/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_09/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_occlu01/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_occlu02_1/models/weights_19/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_occlu02_2/models/weights_17/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_occlu03_2/models/weights_18/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono_geo00/models/weights_1/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_occlu03_1_1/models/weights_4/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/stereo_resnet50/models/weights_0/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png --num_layers 50
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono_cycleconsis01/models/weights_0/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MS_lr17_/models/weights_0/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png --scales 0
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/mono21_01/models/weights_0/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png --scales 0
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MS21_freezepose01/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MS_lr_in_right_continue/models/weights_15/ --eval_stereo --data_path /test/datasets/Kitti/Kitti_raw_data --png
-
-#0313
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono01/models/weights_19/ --eval_mono --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet14/models/weights_12/ --eval_stereo  --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=1 python evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet11_rep1/models/weights_16/ --eval_mono  --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug/models/weights_19/ --eval_mono --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug05_1024/models/weights_6/ --eval_mono --height 320 --width 1024 --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug05_1/models/weights_0/ --eval_mono --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis/models/weights_0/ --eval_mono --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis13/models/weights_16/ --eval_mono --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis05_2/models/weights_18/ --eval_mono --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis19/models/weights_27/ --eval_mono --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis25/models/weights_29/ --eval_mono --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M3Depth_0/models/weights_0/ --eval_stereo --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug05_1024/models/weights_29/ --eval_mono --height 320 --width 1024 --scales 0 1 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis28_1024/models/weights_8/ --eval_mono --height 320 --width 1024 --scales 0 --data_path /test/datasets/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/MMB_Depth05/models/weights_5/ --scales 0 --eval_stereo --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/M21_wnet47_aug_consis28_1024/models/weights_19/ --eval_mono --height 320 --width 1024 --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/EMDepth00_abs2/models/weights_19/ --eval_mono --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/EMDepth00_baseline_scale4_continue/models/weights_7/ --eval_mono --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/EMDepth00_abs1_1/models/weights_14/ --eval_mono --scales 0 --data_path /opt/data/common/Kitti/Kitti_raw_data --png
-#CUDA_VISIBLE_DEVICES=0 python3 evaluate_depth.py --load_weights_folder /test/monodepth2-master/hm_train/hm_mono_1024x320/models/weights_19/ --eval_mono --height 320 --width 1024 --data_path /test/datasets/Kitti/Kitti_raw_data --png
