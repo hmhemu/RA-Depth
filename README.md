@@ -48,3 +48,9 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /models/RA
 ```
 
 
+#### Acknowledgement
+ Thanks the authors for their works:
+ - [monodepth2](https://github.com/nianticlabs/monodepth2)
+ - [DIFFNet](https://github.com/brandleyzhou/DIFFNet)
+ 
+ 
