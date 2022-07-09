@@ -68,14 +68,6 @@ def evaluate(opt):
     assert sum((opt.eval_mono, opt.eval_stereo)) == 1, \
         "Please choose mono or stereo evaluation by setting either --eval_mono or --eval_stereo"
 
-    # # compute the parameters and flops
-    # unet = networks.UNet()
-    # macs, params = get_model_complexity_info(unet, (3,192,640), as_strings=True,
-    #                                    print_per_layer_stat=False, verbose=True)
-    # print('{:<30}  {:<8}'.format('Computational complexity: ', macs))
-    # print('{:<30}  {:<8}'.format('Number of parameters: ', params))
-    # print(hhh)
-
     if opt.ext_disp_to_eval is None:
 
         opt.load_weights_folder = os.path.expanduser(opt.load_weights_folder)
@@ -86,7 +78,6 @@ def evaluate(opt):
         print("-> Loading weights from {}".format(opt.load_weights_folder))
 
         filenames = readlines(os.path.join(splits_dir, opt.eval_split, "test_files.txt"))
-        # filenames = readlines(os.path.join(splits_dir, opt.eval_split, "test_files_right.txt"))
         encoder_path = os.path.join(opt.load_weights_folder, "encoder.pth")
         decoder_path = os.path.join(opt.load_weights_folder, "depth.pth")
 
@@ -101,7 +92,7 @@ def evaluate(opt):
         # encoder = networks.ResnetEncoder(opt.num_layers, False)
         encoder = networks.hrnet18(False)
         
-        depth_decoder = networks.DepthDecoder_MSF(encoder.num_ch_enc, opt.scales, num_output_channels=1)
+        depth_decoder = networks.DepthDecoder_MSF(encoder.num_ch_enc, [0], num_output_channels=1)
 
         model_dict = encoder.state_dict()
         encoder.load_state_dict({k: v for k, v in encoder_dict.items() if k in model_dict})
@@ -179,7 +170,6 @@ def evaluate(opt):
         quit()
 
     gt_path = os.path.join(splits_dir, opt.eval_split, "gt_depths.npz")
-    # gt_path = os.path.join(splits_dir, opt.eval_split, "gt_depths_right.npz")
     gt_depths = np.load(gt_path, fix_imports=True, encoding='latin1', allow_pickle=True)["data"]
 
     print("-> Evaluating")
