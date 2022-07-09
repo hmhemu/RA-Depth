@@ -47,6 +47,11 @@ CUDA_VISIBLE_DEVICES=0 python train.py --model_name RA-Depth --scales 0 --png --
 CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /models/RA-Depth/ --eval_mono --height 192 --width 640 --scales 0 --data_path /datasets/Kitti/Kitti_raw_data --png
 ```
 
+## Infer a single depth map from a RGB:
+```
+CUDA_VISIBLE_DEVICES=0 python test_simple.py --image_path /test.png --model_name RA-Depth
+```
+
 
 #### Acknowledgement
  Thanks the authors for their works:
