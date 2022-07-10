@@ -47,9 +47,7 @@ CUDA_VISIBLE_DEVICES=0 python test_simple.py --image_path /test.png --model_name
 
 
 #### Acknowledgement
- The authors would like to thank Beibei Zhou and Kun Wang for their valuable suggestions and help in experimenting. 
- We also thank the authors for their superior works:
- - [monodepth2](https://github.com/nianticlabs/monodepth2)
- - [DIFFNet](https://github.com/brandleyzhou/DIFFNet)
+ - The authors would like to thank Beibei Zhou and Kun Wang for their valuable suggestions and help in experimenting. 
+ - Thank the authors for their superior works: [monodepth2](https://github.com/nianticlabs/monodepth2), [DIFFNet](https://github.com/brandleyzhou/DIFFNet).
  
  
