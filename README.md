@@ -7,7 +7,7 @@ If you think it is a useful work, please consider citing it.
 ```
 @inproceedings{ra_depth,
     title={RA-Depth: Resolution Adaptive Self-Supervised Monocular Depth Estimation},
-    author={Mu, He and Le, Hui and Beibei, Zhou and Kun, Wang and Yikai, Bian and Jian, Ren and Jin, Xie and Jian, Yang},
+    author={Mu, He and Le, and Yikai, Bian and Jian, Ren and Jin, Xie and Jian, Yang},
     booktitle={ECCV},
     year={2022}
     }
@@ -21,13 +21,6 @@ If you think it is a useful work, please consider citing it.
 ## Basic results on KITTI dataset
 ![](assets/results1.png)
 
-
-## Resolution Adaptation Results
-![](assets/results2.png)
-
-
-##  Ablation Study
-![](assets/results3.png)
 
 
 ## Visualization Results of Resolution Adaptation
@@ -54,7 +47,8 @@ CUDA_VISIBLE_DEVICES=0 python test_simple.py --image_path /test.png --model_name
 
 
 #### Acknowledgement
- Thanks the authors for their works:
+ The authors would like to thank Beibei Zhou and Kun Wang for their support and help in writing and experimenting. 
+ We also thank the authors for their superior works:
  - [monodepth2](https://github.com/nianticlabs/monodepth2)
  - [DIFFNet](https://github.com/brandleyzhou/DIFFNet)
  
