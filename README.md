@@ -45,6 +45,11 @@ CUDA_VISIBLE_DEVICES=0 python evaluate_depth.py --load_weights_folder /models/RA
 CUDA_VISIBLE_DEVICES=0 python test_simple.py --image_path /test.png --model_name RA-Depth
 ```
 
+## Environments:
+```
+python: 3.6.9
+torch: 1.6.0
+```
 
 #### Acknowledgement
  - The authors would like to thank Beibei Zhou and Kun Wang for their valuable suggestions and discussions. 
